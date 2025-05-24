@@ -1,0 +1,658 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.header p {
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+.btn-success {
+    background: #10b981;
+    color: white;
+    width: 100%;
+}
+
+.btn-success:hover {
+    background: #059669;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #3b82f6;
+    border: 2px solid #3b82f6;
+}
+
+.btn-outline:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-header p {
+    color: #6b7280;
+}
+
+.card-content {
+    padding: 24px;
+}
+
+/* Form */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+/* Patients List */
+.patients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.patient-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f9fafb;
+}
+
+.patient-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.patient-ticket {
+    text-align: center;
+    min-width: 80px;
+}
+
+.patient-ticket .number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+.patient-ticket .type {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+.patient-details h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.patient-details .time {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.patient-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: white;
+}
+
+.status-aguardando {
+    background: #f59e0b;
+}
+
+.status-chamando {
+    background: #3b82f6;
+    animation: pulse 2s infinite;
+}
+
+.status-atendimento {
+    background: #10b981;
+}
+
+.status-buttons {
+    display: flex;
+    gap: 4px;
+}
+
+.status-btn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    border: 1px solid #d1d5db;
+    background: white;
+    cursor: pointer;
+}
+
+.status-btn.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.stat-waiting .stat-number {
+    color: #f59e0b;
+}
+
+.stat-calling .stat-number {
+    color: #3b82f6;
+}
+
+.stat-service .stat-number {
+    color: #10b981;
+}
+
+.stat-total .stat-number {
+    color: #6b7280;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #6b7280;
+}
+
+.empty-state i {
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+/* Display Panel Styles */
+.display-body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.display-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.display-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.display-header h1 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.header-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+}
+
+.time-info,
+.patients-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Calling Section */
+.calling-section {
+    margin-bottom: 30px;
+}
+
+.calling-card {
+    border: 3px solid #3b82f6;
+    background: #dbeafe;
+}
+
+.calling-title {
+    color: #1e40af;
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 1.75rem;
+}
+
+.calling-patients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.calling-patient {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 3px solid #3b82f6;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+.calling-patient .ticket-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #3b82f6;
+    margin-bottom: 12px;
+}
+
+.calling-patient .patient-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+
+.calling-patient .service-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+/* Service Section */
+.service-section {
+    margin-bottom: 30px;
+}
+
+.service-card {
+    border: 3px solid #10b981;
+    background: #d1fae5;
+}
+
+.service-title {
+    color: #047857;
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 1.75rem;
+}
+
+.service-patients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.service-patient {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #10b981;
+    text-align: center;
+}
+
+.service-patient .ticket-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #10b981;
+    margin-bottom: 8px;
+}
+
+.service-patient .patient-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.service-patient .service-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: #10b981;
+    font-size: 0.875rem;
+}
+
+/* Waiting Section */
+.waiting-title {
+    color: #374151;
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 1.75rem;
+}
+
+.waiting-patients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.waiting-patient {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+}
+
+.waiting-patient .ticket-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.waiting-patient .patient-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.waiting-patient .service-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: #6b7280;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+}
+
+.waiting-patient .status {
+    background: #f3f4f6;
+    color: #6b7280;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+}
+
+/* Display Stats */
+.display-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.display-stat-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.display-stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.display-stat-label {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.display-stat-card.stat-waiting {
+    background: #fef3c7;
+    border: 2px solid #f59e0b;
+}
+
+.display-stat-card.stat-waiting .display-stat-number {
+    color: #d97706;
+}
+
+.display-stat-card.stat-calling {
+    background: #dbeafe;
+    border: 2px solid #3b82f6;
+}
+
+.display-stat-card.stat-calling .display-stat-number {
+    color: #2563eb;
+}
+
+.display-stat-card.stat-service {
+    background: #d1fae5;
+    border: 2px solid #10b981;
+}
+
+.display-stat-card.stat-service .display-stat-number {
+    color: #059669;
+}
+
+.display-stat-card.stat-total {
+    background: #f3f4f6;
+    border: 2px solid #6b7280;
+}
+
+.display-stat-card.stat-total .display-stat-number {
+    color: #4b5563;
+}
+
+/* Empty Waiting */
+.empty-waiting {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    color: #6b7280;
+}
+
+.empty-waiting i {
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-waiting p {
+    font-size: 1.25rem;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .patient-item {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+    
+    .patient-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .status-buttons {
+        justify-content: center;
+    }
+    
+    .header-content {
+        text-align: center;
+    }
+    
+    .header-info {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .display-header h1 {
+        font-size: 2rem;
+    }
+    
+    .calling-patients-grid,
+    .service-patients-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .waiting-patients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Atendimento - Público</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="display-body">
+    <div class="display-container">
+        <!-- Header -->
+        <header class="display-header">
+            <h1>Painel de Atendimento</h1>
+            <div class="header-info">
+                <div class="time-info">
+                    <i class="fas fa-clock"></i>
+                    <span id="current-time"></span>
+                </div>
+                <div class="patients-info">
+                    <i class="fas fa-users"></i>
+                    <span id="total-patients">0</span> pacientes
+                </div>
+            </div>
+            <a href="index.html" class="btn btn-outline">
+                <i class="fas fa-arrow-left"></i> Voltar ao Admin
+            </a>
+        </header>
+
+        <!-- Pacientes sendo chamados -->
+        <div id="calling-section" class="calling-section" style="display: none;">
+            <div class="card calling-card">
+                <div class="card-content">
+                    <h2 class="calling-title">🔊 CHAMANDO PARA ATENDIMENTO</h2>
+                    <div id="calling-patients" class="calling-patients-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pacientes em atendimento -->
+        <div id="service-section" class="service-section" style="display: none;">
+            <div class="card service-card">
+                <div class="card-content">
+                    <h2 class="service-title">⚕️ EM ATENDIMENTO</h2>
+                    <div id="service-patients" class="service-patients-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fila de espera -->
+        <div class="card">
+            <div class="card-content">
+                <h2 class="waiting-title">⏳ FILA DE ESPERA</h2>
+                <div id="waiting-patients" class="waiting-patients-grid">
+                    <div class="empty-waiting">
+                        <i class="fas fa-users fa-4x"></i>
+                        <p>Nenhum paciente aguardando</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="display-stats-grid">
+            <div class="display-stat-card stat-waiting">
+                <div class="display-stat-number" id="display-stat-waiting">0</div>
+                <div class="display-stat-label">Aguardando</div>
+            </div>
+            <div class="display-stat-card stat-calling">
+                <div class="display-stat-number" id="display-stat-calling">0</div>
+                <div class="display-stat-label">Chamando</div>
+            </div>
+            <div class="display-stat-card stat-service">
+                <div class="display-stat-number" id="display-stat-service">0</div>
+                <div class="display-stat-label">Em Atendimento</div>
+            </div>
+            <div class="display-stat-card stat-total">
+                <div class="display-stat-number" id="display-stat-total">0</div>
+                <div class="display-stat-label">Total</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Inicializar painel público
+        document.addEventListener('DOMContentLoaded', function() {
+            initDisplayPanel();
+        });
+    </script>
+</body>
+</html>
